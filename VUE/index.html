@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <title>Arbitrary wave generator</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script src=vue-trend.js></script>
+    </head>
+    <body>
+        <div id="app">
+            <nav class="navbar warning">
+                <span class="navbar-text">
+                </span>
+            </nav>
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <legend>Parameters</legend>
+                        <div v-for="param in parameters">
+                            <input type="text" :placeholder="[[param.name]]"/>
+                            <label>{{param.unit}}</label>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <legend>Waveform</legend>
+                        <div v-for="waveform in waveforms">
+                            <input type="radio" :value="waveform" v-model="picked">
+                            <label>{{waveform}}</label>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <legend>Connection</legend>
+                        <input type="text" placeholder="Ip address"/>
+                        <input id="Enviar" type="submit" value="Enviar"/>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div class="row">
+                    <trend
+                        :data="[512,537,562,587,612,636,661,684,708,731,753,775,796,817,837,856,874,891,908,923,938,951,964,975,985,994,1002,1009,1014,1018,1022,1023,1024,1023,1022,1018,1014,1009,1002,994,985,975,964,951,938,923,908,891,874,856,837,817,796,775,753,731,708,684,661,636,612,587,562,537,512,487,462,437,412,388,363,340,316,293,271,249,228,207,187,168,150,133,116,101,86,73,60,49,39,30,22,15,10,6,2,1,0,1,2,6,10,15,22,30,39,49,60,73,86,101,116,133,150,168,187,207,228,249,271,293,316,340,363,388,412,437,462,487,512,537,562,587,612,636,661,684,708,731,753,775,796,817,837,856,874,891,908,923,938,951,964,975,985,994,1002,1009,1014,1018,1022,1023,1024,1023,1022,1018,1014,1009,1002,994,985,975,964,951,938,923,908,891,874,856,837,817,796,775,753,731,708,684,661,636,612,587,562,537,512,487,462,437,412,388,363,340,316,293,271,249,228,207,187,168,150,133,116,101,86,73,60,49,39,30,22,15,10,6,2,1,0,1,2,6,10,15,22,30,39,49,60,73,86,101,116,133,150,168,187,207,228,249,271,293,316,340,363,388,412,437,462,487,512]"
+                        :gradient="['#42b983', '#2c3e50']"
+                        auto-draw
+                        smooth>
+                    </trend>
+                </div>
+            </div>
+        </div>
+        <script src="main.js"></script>
+    </body>
+</html>
