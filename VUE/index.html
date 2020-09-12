@@ -27,8 +27,8 @@
                     <div class="col">
                         <legend>Waveform</legend>
                         <div v-for="waveform in waveforms">
-                            <input type="radio" :value="waveform" v-model="picked">
-                            <label>{{waveform}}</label>
+                            <input :id="waveform" type="radio" :value="waveform" v-model="picked">
+                            <label :for="waveform">{{waveform}}</label>
                         </div>
                     </div>
                     <div class="col">
