@@ -13,7 +13,7 @@ var app = new Vue({
 		picked: '',
 		parameters: [
 			{ name: 'Frequency', unit: 'Hz'},
-			{ name: 'Aplitude', unit: 'Vp'},
+			{ name: 'Amplitude', unit: 'Vp'},
 			{ name: 'Offset', unit: 'V'}
 		]
 	}
